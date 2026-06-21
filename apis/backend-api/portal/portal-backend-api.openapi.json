@@ -1,0 +1,55 @@
+{
+  "openapi": "3.1.2",
+  "info": {
+    "title": "SDKWork Portal Backend API",
+    "version": "1.0.0",
+    "description": "Backend/admin contract for SDKWork platform portal capability.",
+    "x-sdkwork-api-authority": "sdkwork-portal-backend-api",
+    "x-sdkwork-sdk-family": "sdkwork-portal-backend-sdk",
+    "x-sdkwork-owner": "sdkwork-portal"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:18091",
+      "description": "Local sdkwork-portal runtime"
+    }
+  ],
+  "paths": {
+    "/backend/v3/api/portal/preferences": {
+      "get": {
+        "operationId": "portal.preferences.admin.list",
+        "summary": "List portal preferences for tenant administration",
+        "tags": ["portal"],
+        "x-sdkwork-api-surface": "backend-api",
+        "x-sdkwork-request-context": "WebRequestContext",
+        "responses": {
+          "200": {
+            "description": "Preference summaries",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "userId": { "type": "string", "format": "uuid" },
+                          "theme": { "type": "string" },
+                          "pinnedCount": { "type": "integer" }
+                        },
+                        "required": ["userId", "theme", "pinnedCount"]
+                      }
+                    }
+                  },
+                  "required": ["items"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

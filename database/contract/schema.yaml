@@ -1,0 +1,13 @@
+schema_version: 1
+kind: sdkwork.database.schema
+module_id: portal
+contract_version: 1.0.0
+owner_team: portal-platform
+compliance_level: L2
+engines:
+  - postgres
+table_prefix: platform_
+tables:
+  - name: platform_portal_preference
+    lifecycle_status: active
+    owner: portal-platform

@@ -1,0 +1,78 @@
+{
+  "openapi": "3.1.2",
+  "info": {
+    "title": "SDKWork Portal App API",
+    "version": "1.0.0",
+    "description": "App/client contract for SDKWork platform portal capability.",
+    "x-sdkwork-api-authority": "sdkwork-portal-app-api",
+    "x-sdkwork-sdk-family": "sdkwork-portal-app-sdk",
+    "x-sdkwork-owner": "sdkwork-portal"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:18091",
+      "description": "Local sdkwork-portal runtime"
+    }
+  ],
+  "paths": {
+    "/app/v3/api/portal/preferences": {
+      "get": {
+        "operationId": "portal.preferences.retrieve",
+        "summary": "Retrieve current user portal preferences",
+        "tags": ["portal"],
+        "x-sdkwork-api-surface": "app-api",
+        "x-sdkwork-request-context": "WebRequestContext",
+        "responses": {
+          "200": {
+            "description": "Portal preferences",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pinnedAppKeys": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "theme": { "type": "string" }
+                  },
+                  "required": ["pinnedAppKeys", "theme"]
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "portal.preferences.update",
+        "summary": "Update current user portal preferences",
+        "tags": ["portal"],
+        "x-sdkwork-api-surface": "app-api",
+        "x-sdkwork-request-context": "WebRequestContext",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pinnedAppKeys": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "theme": { "type": "string" }
+                },
+                "required": ["pinnedAppKeys", "theme"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preferences updated"
+          }
+        }
+      }
+    }
+  }
+}

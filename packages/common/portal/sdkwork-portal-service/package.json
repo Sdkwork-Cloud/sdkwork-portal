@@ -1,0 +1,13 @@
+{
+  "name": "@sdkwork/portal-service",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@sdkwork/portal-contracts": "workspace:*",
+    "@sdkwork/utils": "workspace:*"
+  }
+}

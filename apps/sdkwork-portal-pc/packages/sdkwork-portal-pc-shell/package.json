@@ -1,0 +1,13 @@
+{
+  "name": "@sdkwork/portal-pc-shell",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.tsx"
+  },
+  "dependencies": {
+    "@sdkwork/portal-pc-core": "workspace:*",
+    "react": "catalog:"
+  }
+}

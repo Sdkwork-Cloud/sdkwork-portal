@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.database.seed-manifest",
+  "moduleId": "portal",
+  "profiles": [
+    {
+      "id": "standard",
+      "locales": ["zh-CN", "en-US"],
+      "files": []
+    }
+  ]
+}

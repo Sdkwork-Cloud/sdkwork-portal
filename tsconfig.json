@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": [
+    "packages/common/portal/**/*.ts",
+    "apps/sdkwork-portal-pc/**/*.ts",
+    "apps/sdkwork-portal-pc/**/*.tsx"
+  ]
+}

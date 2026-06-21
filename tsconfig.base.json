@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@sdkwork/utils": ["../sdkwork-utils/packages/sdkwork-utils-typescript/src/index.ts"],
+      "@sdkwork/portal-contracts": ["packages/common/portal/sdkwork-portal-contracts/src/index.ts"],
+      "@sdkwork/portal-service": ["packages/common/portal/sdkwork-portal-service/src/index.ts"],
+      "@sdkwork/portal-pc-core": ["apps/sdkwork-portal-pc/packages/sdkwork-portal-pc-core/src/index.ts"],
+      "@sdkwork/portal-pc-shell": ["apps/sdkwork-portal-pc/packages/sdkwork-portal-pc-shell/src/index.tsx"]
+    },
+    "allowImportingTsExtensions": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "types": ["node"],
+    "ignoreDeprecations": "6.0"
+  }
+}

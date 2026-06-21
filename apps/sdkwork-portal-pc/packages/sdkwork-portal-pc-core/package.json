@@ -1,0 +1,14 @@
+{
+  "name": "@sdkwork/portal-pc-core",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@sdkwork/portal-contracts": "workspace:*",
+    "@sdkwork/portal-service": "workspace:*",
+    "@sdkwork/utils": "workspace:*"
+  }
+}
