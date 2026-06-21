@@ -18,14 +18,24 @@
     "profileKey": "backend-root-admin",
     "ownerMode": "tenant",
     "grantMode": "current",
-    "platform": "WEB"
+    "platform": "WEB",
+    "tenantId": "100001",
+    "organizationId": "0"
   },
   "runtime": {
     "family": "web",
     "framework": "react",
-    "runtimes": ["WEB", "BROWSER"],
-    "deliveryModes": ["WEB_URL"],
-    "supportedDeploymentProfiles": ["standalone", "cloud"],
+    "runtimes": [
+      "WEB",
+      "BROWSER"
+    ],
+    "deliveryModes": [
+      "WEB_URL"
+    ],
+    "supportedDeploymentProfiles": [
+      "standalone",
+      "cloud"
+    ],
     "defaultDeploymentProfile": "cloud"
   },
   "publish": {
