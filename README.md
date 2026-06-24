@@ -24,3 +24,10 @@ pnpm --dir apps/sdkwork-portal-pc dev
 | `sdkwork-database` | integrated | `database/` lifecycle via `sdkwork-portal-database-host` |
 | `sdkwork-utils` | integrated | `@sdkwork/utils` in portal TS packages |
 | `sdkwork-discovery` | deferred | No RPC services yet |
+
+## Documentation Canon
+
+- [docs/README.md](docs/README.md)
+- [docs/product/prd/PRD.md](docs/product/prd/PRD.md)
+- [docs/architecture/tech/TECH_ARCHITECTURE.md](docs/architecture/tech/TECH_ARCHITECTURE.md)
+

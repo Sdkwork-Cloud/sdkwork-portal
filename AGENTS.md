@@ -56,3 +56,10 @@ Read `apps/sdkwork-portal-pc/sdkwork.app.config.json` when changing portal appli
 pnpm verify
 pnpm db:validate
 ```
+
+## Documentation Canon
+
+- [docs/README.md](docs/README.md)
+- [docs/product/prd/PRD.md](docs/product/prd/PRD.md)
+- [docs/architecture/tech/TECH_ARCHITECTURE.md](docs/architecture/tech/TECH_ARCHITECTURE.md)
+
