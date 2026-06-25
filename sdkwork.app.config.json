@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 3,
+  "kind": "sdkwork.app",
+  "app": {
+    "key": "sdkwork-portal",
+    "name": "SDKWork Portal PC",
+    "displayName": "SDKWork Portal PC",
+    "description": "Unified SDKWork PC portal shell and preferences console.",
+    "vendor": "SDKWork",
+    "appType": "APP_REACT",
+    "versionSource": "package.json",
+    "identifiers": {
+      "desktopAppId": "com.sdkwork.portal.pc.desktop",
+      "containerImage": "registry.sdkwork.com/apps/sdkwork-portal-pc"
+    }
+  },
+  "backend": {
+    "profileKey": "backend-root-admin",
+    "ownerMode": "tenant",
+    "grantMode": "current",
+    "platform": "WEB",
+    "tenantId": "100001",
+    "organizationId": "0"
+  },
+  "runtime": {
+    "family": "web",
+    "framework": "react",
+    "runtimes": [
+      "WEB",
+      "BROWSER"
+    ],
+    "deliveryModes": [
+      "WEB_URL"
+    ],
+    "supportedDeploymentProfiles": [
+      "standalone",
+      "cloud"
+    ],
+    "defaultDeploymentProfile": "cloud"
+  },
+  "publish": {
+    "config": {
+      "workspaceRoot": "sdkwork-portal",
+      "managedBy": "sdkwork-portal-workspace"
+    }
+  },
+  "devApp": {
+    "sourceRoot": "apps/sdkwork-portal-pc"
+  },
+  "metadata": {
+    "standardOwner": "sdkwork-specs",
+    "initializedAt": "2026-06-21T00:00:00.000Z"
+  }
+}
