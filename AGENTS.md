@@ -32,7 +32,7 @@ Read `apps/sdkwork-portal-pc/sdkwork.app.config.json` when changing portal appli
 - `specs/`: local application/component contracts and narrowing rules.
 - `apis/`: authored API contracts for platform portal capability.
 - `apps/sdkwork-portal-pc/`: PC browser/desktop portal application root.
-- `crates/`: Rust crates including `sdkwork-router-portal-*` route crates.
+- `crates/`: Rust crates including `sdkwork-routes-portal-*` route crates.
 - `database/`: `sdkwork-database` lifecycle assets.
 - `sdks/`: SDK family workspaces and generated artifacts.
 - `packages/common/portal/`: shared TypeScript portal contracts and services.

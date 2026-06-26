@@ -5,20 +5,19 @@ edition.workspace = true
 license.workspace = true
 publish.workspace = true
 
-[lib]
-path = "src/lib.rs"
-
 [[bin]]
 name = "portal-server"
 path = "src/main.rs"
 
 [dependencies]
+sdkwork_portal_gateway_assembly = { package = "sdkwork-portal-gateway-assembly", path = "../sdkwork-portal-gateway-assembly" }
 axum = { workspace = true }
 tokio = { workspace = true }
 tower-http = { workspace = true }
 tracing = { workspace = true }
 tracing-subscriber = { workspace = true }
 serde_json = { workspace = true }
-sdkwork_router_portal_app_api.workspace = true
-sdkwork_router_portal_backend_api.workspace = true
+sdkwork-web-bootstrap = { workspace = true }
+sdkwork_routes_portal_app_api.workspace = true
+sdkwork_routes_portal_backend_api.workspace = true
 sdkwork_portal_service_host.workspace = true
