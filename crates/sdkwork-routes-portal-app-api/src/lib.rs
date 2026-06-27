@@ -1,3 +1,11 @@
+//! App API route boundary for SDKWork Portal.
+
+use std::sync::Arc;
+
+use axum::Router;
+use sdkwork_portal_service_host::PortalServiceHost;
+use sdkwork_web_core::HttpRouteManifest;
+
 pub mod handlers;
 pub mod http_route_manifest;
 pub mod routes;

@@ -8,7 +8,7 @@ members = [
   "crates/sdkwork-routes-portal-backend-api",
   "crates/sdkwork-portal-database-host",
   "crates/sdkwork-portal-service-host",
-  "crates/sdkwork-portal-api-server",
+  "crates/sdkwork-portal-standalone-gateway",
 ]
 
 [workspace.package]

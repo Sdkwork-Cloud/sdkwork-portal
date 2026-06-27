@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "pnpm --dir apps/sdkwork-portal-pc dev",
     "build": "pnpm --dir apps/sdkwork-portal-pc build",
-    "start": "cargo run -p sdkwork-portal-api-server --bin portal-server",
+    "start": "cargo run -p sdkwork-portal-standalone-gateway --bin portal-server",
     "test": "pnpm test:node && pnpm test:vitest && cargo test --workspace",
     "test:node": "node --test tests/static/*.test.mjs tests/contract/*.test.mjs",
     "test:vitest": "vitest run --config vitest.config.ts --configLoader native --pool vmThreads",

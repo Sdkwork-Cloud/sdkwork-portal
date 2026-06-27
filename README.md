@@ -5,7 +5,7 @@ SDKWork **platform portal** capability application: unified PC portal shell, use
 - Standards: `../sdkwork-specs/README.md`
 - Domain: `platform` / capability: `portal`
 - PC app: `apps/sdkwork-portal-pc/`
-- HTTP API: `crates/sdkwork-portal-api-server/`
+- HTTP API: `crates/sdkwork-portal-standalone-gateway/`
 - Database: `database/` via `sdkwork-database`
 
 ## Quick start
