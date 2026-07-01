@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "kind": "sdkwork.app.topology",
-  "appId": "sdkwork-portal-pc",
+  "appId": "sdkwork-portal",
   "archetype": "application-http-gateway",
   "profileRoot": "configs/topology",
   "profilePattern": "{deploymentProfile}.{serviceLayout}.{environment}.env",
@@ -29,7 +29,7 @@
     "developmentProfileId": "standalone.unified-process.development",
     "productionProfileId": "cloud.split-services.production",
     "desktopBuildProfileId": "standalone.unified-process.production",
-    "gatewayBind": "127.0.0.1:8080"
+    "gatewayBind": "127.0.0.1:18091"
   },
   "profileFiles": {
     "standalone.unified-process.development": "configs/topology/standalone.unified-process.development.env",
@@ -42,17 +42,17 @@
     "cloud.split-services.production": "configs/topology/cloud.split-services.production.env"
   },
   "envKeys": {
-    "deploymentProfile": "SDKWORK_PORTAL_PC_DEPLOYMENT_PROFILE",
-    "serviceLayout": "SDKWORK_PORTAL_PC_SERVICE_LAYOUT",
-    "environment": "SDKWORK_PORTAL_PC_ENVIRONMENT",
-    "profileId": "SDKWORK_PORTAL_PC_PROFILE_ID",
-    "clientDeploymentProfile": "VITE_SDKWORK_PORTAL_PC_DEPLOYMENT_PROFILE",
-    "gatewayAutostart": "SDKWORK_PORTAL_PC_PLATFORM_API_GATEWAY_AUTOSTART",
-    "standaloneGatewayBind": "SDKWORK_PORTAL_PC_APPLICATION_PUBLIC_INGRESS_BIND",
+    "deploymentProfile": "SDKWORK_PORTAL_DEPLOYMENT_PROFILE",
+    "serviceLayout": "SDKWORK_PORTAL_SERVICE_LAYOUT",
+    "environment": "SDKWORK_PORTAL_ENVIRONMENT",
+    "profileId": "SDKWORK_PORTAL_PROFILE_ID",
+    "clientDeploymentProfile": "VITE_SDKWORK_PORTAL_DEPLOYMENT_PROFILE",
+    "gatewayAutostart": "SDKWORK_PORTAL_PLATFORM_API_GATEWAY_AUTOSTART",
+    "standaloneGatewayBind": "SDKWORK_PORTAL_APPLICATION_PUBLIC_INGRESS_BIND",
     "cloudGatewayBind": "SDKWORK_API_CLOUD_GATEWAY_BIND",
     "cloudGatewayConfig": "SDKWORK_API_CLOUD_GATEWAY_CONFIG",
-    "clientApiGatewayBaseUrl": "VITE_SDKWORK_PORTAL_PC_PLATFORM_API_GATEWAY_HTTP_URL",
-    "apiGatewayBaseUrl": "SDKWORK_PORTAL_PC_PLATFORM_API_GATEWAY_HTTP_URL"
+    "clientApiGatewayBaseUrl": "VITE_SDKWORK_PORTAL_PLATFORM_API_GATEWAY_HTTP_URL",
+    "apiGatewayBaseUrl": "SDKWORK_PORTAL_PLATFORM_API_GATEWAY_HTTP_URL"
   },
   "surfaces": {
     "application.public-ingress": {
@@ -60,9 +60,9 @@
       "protocols": [
         "http"
       ],
-      "bindEnv": "SDKWORK_PORTAL_PC_APPLICATION_PUBLIC_INGRESS_BIND",
-      "httpUrlEnv": "SDKWORK_PORTAL_PC_APPLICATION_PUBLIC_HTTP_URL",
-      "clientHttpEnv": "VITE_SDKWORK_PORTAL_PC_APPLICATION_PUBLIC_HTTP_URL"
+      "bindEnv": "SDKWORK_PORTAL_APPLICATION_PUBLIC_INGRESS_BIND",
+      "httpUrlEnv": "SDKWORK_PORTAL_APPLICATION_PUBLIC_HTTP_URL",
+      "clientHttpEnv": "VITE_SDKWORK_PORTAL_APPLICATION_PUBLIC_HTTP_URL"
     },
     "platform.api-gateway": {
       "connectivityPlane": "platform",
@@ -71,21 +71,21 @@
       ],
       "owner": "sdkwork-api-cloud-gateway",
       "bindEnv": "SDKWORK_API_CLOUD_GATEWAY_BIND",
-      "httpUrlEnv": "SDKWORK_PORTAL_PC_PLATFORM_API_GATEWAY_HTTP_URL",
-      "clientHttpEnv": "VITE_SDKWORK_PORTAL_PC_PLATFORM_API_GATEWAY_HTTP_URL",
-      "autostartEnv": "SDKWORK_PORTAL_PC_PLATFORM_API_GATEWAY_AUTOSTART"
+      "httpUrlEnv": "SDKWORK_PORTAL_PLATFORM_API_GATEWAY_HTTP_URL",
+      "clientHttpEnv": "VITE_SDKWORK_PORTAL_PLATFORM_API_GATEWAY_HTTP_URL",
+      "autostartEnv": "SDKWORK_PORTAL_PLATFORM_API_GATEWAY_AUTOSTART"
     }
   },
   "cloudPublicHosts": {
     "application.public-ingress": {
-      "httpHost": "portal-pc.sdkwork.com"
+      "httpHost": "portal.sdkwork.com"
     },
     "platform.api-gateway": {
       "httpHost": "api.sdkwork.com"
     }
   },
   "database": {
-    "appPrefix": "SDKWORK_PORTAL_PC"
+    "appPrefix": "SDKWORK_PORTAL"
   },
   "components": {
     "applicationServer": {
@@ -96,7 +96,7 @@
       "crate": "sdkwork-api-cloud-gateway",
       "binary": "sdkwork-api-cloud-gateway",
       "repository": "sdkwork-api-cloud-gateway",
-      "configGlob": "configs/sdkwork-api-cloud-gateway.portal-pc.{profile}.toml"
+      "configGlob": "configs/sdkwork-api-cloud-gateway.portal.{profile}.toml"
     }
   },
   "orchestration": {
@@ -202,8 +202,8 @@
   },
   "packaging": {
     "cloudConfigFiles": [
-      "sdkwork-api-cloud-gateway.portal-pc.development.toml",
-      "sdkwork-api-cloud-gateway.portal-pc.production.toml"
+      "sdkwork-api-cloud-gateway.portal.development.toml",
+      "sdkwork-api-cloud-gateway.portal.production.toml"
     ],
     "targets": [
       {
@@ -215,7 +215,7 @@
           "tar.gz"
         ],
         "runner": "ubuntu-24.04",
-        "outputGlob": "dist/cloud-config/sdkwork-portal-pc-api-gateway-config-*.tar.gz",
+        "outputGlob": "dist/cloud-config/sdkwork-portal-api-gateway-config-*.tar.gz",
         "deploymentProfile": "cloud",
         "runtimeTarget": "container",
         "variant": "config-bundle"

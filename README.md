@@ -1,4 +1,5 @@
 # sdkwork-portal
+repository-kind: application
 
 SDKWork **platform portal** capability application: unified PC portal shell, user preferences, and operator console.
 
@@ -20,9 +21,10 @@ pnpm --dir apps/sdkwork-portal-pc dev
 
 | Framework | Status | Notes |
 | --- | --- | --- |
-| `sdkwork-web-framework` | integrated | Rust app-api and backend-api route crates |
+| `sdkwork-web-framework` | integrated | Request context + `SdkWorkApiResponse` / `ProblemDetail` via route common crate |
 | `sdkwork-database` | integrated | `database/` lifecycle via `sdkwork-portal-database-host` |
-| `sdkwork-utils` | integrated | `@sdkwork/utils` in portal TS packages |
+| `sdkwork-utils` | integrated | `@sdkwork/utils` in portal-service; `sdkwork-utils-rust` in route crates |
+| `sdkwork-drive` | not required yet | No upload features; integrate before adding file storage |
 | `sdkwork-discovery` | deferred | No RPC services yet |
 
 ## Documentation Canon

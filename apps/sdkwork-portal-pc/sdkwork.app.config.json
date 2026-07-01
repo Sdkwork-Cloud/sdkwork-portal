@@ -5,8 +5,9 @@
     "key": "sdkwork-portal-pc",
     "name": "SDKWork Portal PC",
     "displayName": "SDKWork Portal PC",
-    "description": "Unified SDKWork PC portal shell and preferences console.",
+    "description": "PC browser and desktop shell for the SDKWork platform portal.",
     "vendor": "SDKWork",
+    "officialWebsiteUrl": "https://sdkwork.com/apps/sdkwork-portal",
     "appType": "APP_REACT",
     "versionSource": "package.json",
     "identifiers": {
@@ -19,30 +20,66 @@
     "ownerMode": "tenant",
     "grantMode": "current",
     "platform": "WEB",
+    "appId": "sdkwork-portal-pc",
     "tenantId": "100001",
     "organizationId": "0"
   },
   "runtime": {
     "family": "web",
     "framework": "react",
-    "runtimes": [
-      "WEB",
-      "BROWSER"
-    ],
-    "deliveryModes": [
-      "WEB_URL"
-    ],
-    "supportedDeploymentProfiles": [
-      "standalone",
-      "cloud"
-    ],
+    "runtimes": ["WEB", "BROWSER"],
+    "deliveryModes": ["WEB_URL"],
+    "supportedDeploymentProfiles": ["standalone", "cloud"],
     "defaultDeploymentProfile": "cloud"
   },
+  "media": {
+    "icons": {
+      "primary": {
+        "id": "sdkwork-portal-pc-primary-icon",
+        "type": "ICON",
+        "purpose": "PRIMARY",
+        "url": "https://cdn.sdkwork.com/apps/sdkwork-portal/assets/icon-1024.png",
+        "platform": "WEB",
+        "locale": "en-US",
+        "width": 1024,
+        "height": 1024,
+        "format": "PNG",
+        "enabled": true
+      },
+      "platform": []
+    },
+    "screenshots": [],
+    "previews": []
+  },
   "publish": {
+    "status": "ACTIVE",
+    "platforms": ["WEB", "BROWSER"],
+    "installPlatforms": ["WEB"],
     "config": {
       "workspaceRoot": "sdkwork-portal",
       "managedBy": "sdkwork-portal-workspace"
     }
+  },
+  "environments": {
+    "development": {
+      "runtimeProfile": "standalone.unified-process.development"
+    },
+    "production": {
+      "runtimeProfile": "cloud.split-services.production"
+    }
+  },
+  "artifacts": {
+    "installConfig": {
+      "packages": []
+    }
+  },
+  "release": {
+    "channel": "stable",
+    "governance": "standard"
+  },
+  "security": {
+    "dataClassification": "internal",
+    "requiresAuthentication": true
   },
   "devApp": {
     "sourceRoot": "apps/sdkwork-portal-pc"

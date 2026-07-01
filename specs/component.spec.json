@@ -22,8 +22,11 @@
   "contracts": {
     "publicExports": ["."],
     "runtimeEntrypoints": ["package.json#scripts.verify"],
-    "routeManifest": "sdks/_route-manifests/app-api/sdkwork-portal-standalone-gateway.route-manifest.json",
-    "sdkClients": [],
+    "routeManifest": "sdks/_route-manifests/app-api/sdkwork-routes-portal-app-api.route-manifest.json",
+    "sdkClients": [
+      "@sdkwork/sdkwork-portal-app-sdk",
+      "@sdkwork/sdkwork-portal-backend-sdk"
+    ],
     "events": [],
     "configKeys": []
   },

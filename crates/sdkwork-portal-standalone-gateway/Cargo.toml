@@ -7,7 +7,7 @@ publish.workspace = true
 
 
 [[bin]]
-name = "sdkwork-portal-standalone-gateway"
+name = "portal-server"
 path = "src/main.rs"
 
 [dependencies]
@@ -20,7 +20,3 @@ tracing-subscriber = { workspace = true }
 serde_json = { workspace = true }
 sdkwork-web-bootstrap = { workspace = true }
 sdkwork_portal_service_host.workspace = true
-
-[[bin]]
-name = "sdkwork-portal-pc-standalone-gateway"
-path = "src/main.rs"

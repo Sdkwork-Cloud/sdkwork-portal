@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.route.manifest",
+  "packageName": "sdkwork-routes-portal-backend-api",
+  "surface": "backend-api",
+  "owner": "sdkwork-portal",
+  "domain": "platform",
+  "capability": "portal",
+  "apiAuthority": "sdkwork-portal-backend-api",
+  "sdkFamily": "sdkwork-portal-backend-sdk",
+  "prefix": "/backend/v3/api",
+  "source": {
+    "crateRoot": "crates/sdkwork-routes-portal-backend-api/src",
+    "crateImport": "sdkwork_routes_portal_backend_api"
+  },
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/backend/v3/api/portal/preferences",
+      "operationId": "portal.preferences.admin.list",
+      "tags": ["portal"],
+      "requestContext": "WebRequestContext",
+      "apiSurface": "backend-api",
+      "auth": {
+        "mode": "dual-token",
+        "required": true,
+        "tenantScope": "tenant",
+        "dataScope": "organization"
+      },
+      "handler": { "module": "crate::handlers", "name": "list_preferences_admin" },
+      "schemas": { "request": null, "response": "SdkWorkListResponse", "problem": "ProblemDetail" },
+      "ownership": { "owner": "sdkwork-portal", "apiAuthority": "sdkwork-portal-backend-api" },
+      "source": {
+        "packageName": "sdkwork-routes-portal-backend-api",
+        "file": "crates/sdkwork-routes-portal-backend-api/src/http_route_manifest.rs"
+      }
+    }
+  ]
+}

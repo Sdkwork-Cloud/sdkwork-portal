@@ -16,14 +16,14 @@
     "@sdkwork/portal-service": "workspace:*",
     "@sdkwork/utils": "workspace:*",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "tailwindcss": "^4.2.2",
+    "@tailwindcss/vite": "^4.2.2"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.2.2",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
-    "tailwindcss": "^4.2.2",
     "typescript": "catalog:",
     "vite": "catalog:"
   }

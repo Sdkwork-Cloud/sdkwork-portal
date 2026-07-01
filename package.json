@@ -11,8 +11,8 @@
     "test": "pnpm test:node && pnpm test:vitest && cargo test --workspace",
     "test:node": "node --test tests/static/*.test.mjs tests/contract/*.test.mjs",
     "test:vitest": "vitest run --config vitest.config.ts --configLoader native --pool vmThreads",
-    "check": "pnpm route-manifest:check && pnpm sdk:check && pnpm db:validate && pnpm typecheck",
-    "verify": "pnpm check && pnpm fmt:rust:check && cargo clippy --workspace --tests -- -D warnings && cargo test --workspace",
+    "check": "pnpm run check:app-composition && pnpm api:envelope:check && pnpm api:check && pnpm route-manifest:check && pnpm sdk:check && pnpm db:validate && pnpm typecheck",
+    "verify": "pnpm check && pnpm deploy:validate && pnpm topology:validate && pnpm fmt:rust:check && cargo clippy --workspace --tests -- -D warnings && cargo test --workspace",
     "clean": "node -e \"console.log('Remove target/, node_modules/, dist/ manually or via CI cache reset')\"",
     "typecheck": "tsc --noEmit",
     "fmt:rust": "cargo fmt --all",
@@ -21,6 +21,7 @@
     "sdk:generate": "node tools/portal_sdk_generate.mjs",
     "api:materialize": "node tools/portal_openapi_export.mjs",
     "api:check": "node tools/portal_openapi_export.mjs --check",
+    "api:envelope:check": "node ../sdkwork-specs/tools/check-api-response-envelope.mjs --workspace ..",
     "route-manifest:export": "node tools/portal_route_manifest_export.mjs",
     "route-manifest:check": "node tools/portal_route_manifest_export.mjs --check",
     "db:validate": "node ../sdkwork-specs/tools/check-database-framework-standard.mjs --root .",
@@ -39,7 +40,9 @@
     "gateway:package:cloud": "node ../sdkwork-app-topology/scripts/gateway-cloud-bundle.mjs bundle --root .",
     "gateway:validate:cloud": "node ../sdkwork-app-topology/scripts/gateway-cloud-bundle.mjs validate --root .",
     "gateway:assembly:materialize": "node scripts/gateway/assembly-materialize.mjs",
-    "gateway:assembly:validate": "node scripts/gateway/assembly-validate.mjs"
+    "gateway:assembly:validate": "node scripts/gateway/assembly-validate.mjs",
+    "check:app-composition": "node ../sdkwork-specs/tools/verify-repo.mjs --root .",
+    "deploy:validate": "node ../sdkwork-specs/tools/check-deploy-standard.mjs"
   },
   "devDependencies": {
     "@sdkwork/utils": "workspace:*",

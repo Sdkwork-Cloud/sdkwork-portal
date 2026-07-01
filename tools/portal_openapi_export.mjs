@@ -1,3 +1,33 @@
 #!/usr/bin/env node
-const checkMode = process.argv.includes("--check");
-console.log(`[portal_openapi_export] ${checkMode ? "check ok" : "materialize skipped (scaffold)"}`);
+import { existsSync, readFileSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const workspaceRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const authorities = [
+  "apis/app-api/portal/portal-app-api.openapi.json",
+  "apis/backend-api/portal/portal-backend-api.openapi.json",
+];
+
+function fail(message) {
+  process.stderr.write(`[portal_openapi_export] ${message}\n`);
+  process.exit(1);
+}
+
+for (const relativePath of authorities) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  if (!existsSync(absolutePath)) {
+    fail(`missing OpenAPI authority: ${relativePath}`);
+  }
+  const openapi = JSON.parse(readFileSync(absolutePath, "utf8"));
+  if (openapi.openapi !== "3.1.2") {
+    fail(`${relativePath} must use OpenAPI 3.1.2`);
+  }
+  for (const schemaName of ["SdkWorkApiResponse", "ProblemDetail"]) {
+    if (!openapi.components?.schemas?.[schemaName]) {
+      fail(`${relativePath} must declare ${schemaName}`);
+    }
+  }
+}
+
+process.stdout.write("[portal_openapi_export] check ok\n");

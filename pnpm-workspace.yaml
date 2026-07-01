@@ -1,8 +1,9 @@
 packages:
-  - "sdks/*"
-  - "packages/common/portal/*"
+  - "apps/sdkwork-portal-common"
+  - "apps/sdkwork-portal-common/packages/*"
   - "apps/sdkwork-portal-pc"
   - "apps/sdkwork-portal-pc/packages/*"
+  - "sdks/*"
   - "../sdkwork-utils/packages/sdkwork-utils-typescript"
 
 catalog:

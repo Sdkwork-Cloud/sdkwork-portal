@@ -1,58 +1,49 @@
 use axum::extract::State;
-use axum::http::StatusCode;
-use axum::Json;
+use axum::response::Response;
+use sdkwork_platform_portal_service::PortalPreferenceSummary;
+use sdkwork_routes_portal_common::{
+    admin_preference_page, envelope::AdminPreferenceItem, finish_api_json, ApiProblem,
+    SdkWorkPageData,
+};
 use sdkwork_web_core::WebRequestContext;
-use serde_json::json;
 use uuid::Uuid;
 
 use crate::routes::PortalBackendState;
 
 pub async fn list_preferences_admin(
+    ctx: WebRequestContext,
     State(state): State<PortalBackendState>,
-    context: WebRequestContext,
-) -> Result<Json<serde_json::Value>, (StatusCode, Json<serde_json::Value>)> {
-    let tenant_id = parse_uuid(context.tenant_id(), "tenant_id")?;
+) -> Response {
+    finish_api_json(&ctx, list_preferences_admin_inner(&ctx, state).await)
+}
+
+async fn list_preferences_admin_inner(
+    ctx: &WebRequestContext,
+    state: PortalBackendState,
+) -> Result<SdkWorkPageData<AdminPreferenceItem>, ApiProblem> {
+    let tenant_id = parse_uuid(ctx.tenant_id(), "tenant_id")?;
     let items = state
         .host
         .portal_service()
         .list_preferences_for_admin(tenant_id)
         .await
-        .map_err(|message| {
-            (
-                StatusCode::INTERNAL_SERVER_ERROR,
-                Json(json!({ "code": "portal.internal_error", "message": message })),
-            )
-        })?;
+        .map_err(ApiProblem::internal_server_error)?;
 
-    Ok(Json(json!({
-        "items": items.into_iter().map(|item| json!({
-            "userId": item.user_id,
-            "theme": item.theme,
-            "pinnedCount": item.pinned_count
-        })).collect::<Vec<_>>()
-    })))
+    Ok(admin_preference_page(map_admin_items(items)))
 }
 
-fn parse_uuid(
-    value: Option<&str>,
-    field: &str,
-) -> Result<Uuid, (StatusCode, Json<serde_json::Value>)> {
-    let raw = value.ok_or_else(|| {
-        (
-            StatusCode::UNAUTHORIZED,
-            Json(json!({
-                "code": "request.missing_context",
-                "message": format!("missing {field}")
-            })),
-        )
-    })?;
-    Uuid::parse_str(raw).map_err(|_| {
-        (
-            StatusCode::BAD_REQUEST,
-            Json(json!({
-                "code": "request.invalid_context",
-                "message": format!("invalid {field}")
-            })),
-        )
-    })
+fn map_admin_items(items: Vec<PortalPreferenceSummary>) -> Vec<AdminPreferenceItem> {
+    items
+        .into_iter()
+        .map(|item| AdminPreferenceItem {
+            user_id: item.user_id,
+            theme: item.theme,
+            pinned_count: item.pinned_count,
+        })
+        .collect()
+}
+
+fn parse_uuid(value: Option<&str>, field: &str) -> Result<Uuid, ApiProblem> {
+    let raw = value.ok_or_else(|| ApiProblem::unauthorized(format!("missing {field}")))?;
+    Uuid::parse_str(raw).map_err(|_| ApiProblem::bad_request(format!("invalid {field}")))
 }

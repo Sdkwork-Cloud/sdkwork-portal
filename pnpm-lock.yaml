@@ -75,6 +75,17 @@ importers:
         specifier: ^5.7.2
         version: 5.9.3
 
+  apps/sdkwork-portal-common/packages/sdkwork-portal-contracts: {}
+
+  apps/sdkwork-portal-common/packages/sdkwork-portal-service:
+    dependencies:
+      '@sdkwork/portal-contracts':
+        specifier: workspace:*
+        version: link:../sdkwork-portal-contracts
+      '@sdkwork/utils':
+        specifier: workspace:*
+        version: link:../../../../../sdkwork-utils/packages/sdkwork-utils-typescript
+
   apps/sdkwork-portal-pc:
     dependencies:
       '@sdkwork/portal-pc-core':
@@ -85,20 +96,23 @@ importers:
         version: link:packages/sdkwork-portal-pc-shell
       '@sdkwork/portal-service':
         specifier: workspace:*
-        version: link:../../packages/common/portal/sdkwork-portal-service
+        version: link:../sdkwork-portal-common/packages/sdkwork-portal-service
       '@sdkwork/utils':
         specifier: workspace:*
         version: link:../../../sdkwork-utils/packages/sdkwork-utils-typescript
+      '@tailwindcss/vite':
+        specifier: ^4.2.2
+        version: 4.3.1(vite@8.0.16(@types/node@25.9.4)(jiti@2.7.0))
       react:
         specifier: 'catalog:'
         version: 19.2.7
       react-dom:
         specifier: 'catalog:'
         version: 19.2.7(react@19.2.7)
-    devDependencies:
-      '@tailwindcss/vite':
+      tailwindcss:
         specifier: ^4.2.2
-        version: 4.3.1(vite@8.0.16(@types/node@25.9.4)(jiti@2.7.0))
+        version: 4.3.1
+    devDependencies:
       '@types/react':
         specifier: 'catalog:'
         version: 19.2.17
@@ -108,9 +122,6 @@ importers:
       '@vitejs/plugin-react':
         specifier: 'catalog:'
         version: 6.0.2(vite@8.0.16(@types/node@25.9.4)(jiti@2.7.0))
-      tailwindcss:
-        specifier: ^4.2.2
-        version: 4.3.1
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
@@ -122,10 +133,10 @@ importers:
     dependencies:
       '@sdkwork/portal-contracts':
         specifier: workspace:*
-        version: link:../../../../packages/common/portal/sdkwork-portal-contracts
+        version: link:../../../sdkwork-portal-common/packages/sdkwork-portal-contracts
       '@sdkwork/portal-service':
         specifier: workspace:*
-        version: link:../../../../packages/common/portal/sdkwork-portal-service
+        version: link:../../../sdkwork-portal-common/packages/sdkwork-portal-service
       '@sdkwork/utils':
         specifier: workspace:*
         version: link:../../../../../sdkwork-utils/packages/sdkwork-utils-typescript
@@ -138,17 +149,6 @@ importers:
       react:
         specifier: 'catalog:'
         version: 19.2.7
-
-  packages/common/portal/sdkwork-portal-contracts: {}
-
-  packages/common/portal/sdkwork-portal-service:
-    dependencies:
-      '@sdkwork/portal-contracts':
-        specifier: workspace:*
-        version: link:../sdkwork-portal-contracts
-      '@sdkwork/utils':
-        specifier: workspace:*
-        version: link:../../../../../sdkwork-utils/packages/sdkwork-utils-typescript
 
 packages:
 

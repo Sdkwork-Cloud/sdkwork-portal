@@ -13,6 +13,7 @@ axum = { workspace = true }
 serde_json = { workspace = true }
 sdkwork_platform_portal_service.workspace = true
 sdkwork_portal_service_host.workspace = true
+sdkwork_routes_portal_common.workspace = true
 sdkwork-web-core.workspace = true
 sdkwork-web-axum.workspace = true
 sdkwork-web-bootstrap.workspace = true

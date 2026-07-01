@@ -1757,21 +1757,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "sdkwork-portal-api-server"
-version = "0.1.0"
-dependencies = [
- "axum",
- "sdkwork-portal-gateway-assembly",
- "sdkwork-portal-service-host",
- "sdkwork-web-bootstrap",
- "serde_json",
- "tokio",
- "tower-http 0.5.2",
- "tracing",
- "tracing-subscriber",
-]
-
-[[package]]
 name = "sdkwork-portal-database-host"
 version = "0.1.0"
 dependencies = [
@@ -1805,6 +1790,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "sdkwork-portal-standalone-gateway"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "sdkwork-portal-gateway-assembly",
+ "sdkwork-portal-service-host",
+ "sdkwork-web-bootstrap",
+ "serde_json",
+ "tokio",
+ "tower-http 0.5.2",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
 name = "sdkwork-routes-portal-app-api"
 version = "0.1.0"
 dependencies = [
@@ -1812,6 +1812,7 @@ dependencies = [
  "sdkwork-iam-web-adapter",
  "sdkwork-platform-portal-service",
  "sdkwork-portal-service-host",
+ "sdkwork-routes-portal-common",
  "sdkwork-web-axum",
  "sdkwork-web-bootstrap",
  "sdkwork-web-core",
@@ -1828,10 +1829,24 @@ dependencies = [
  "sdkwork-iam-web-adapter",
  "sdkwork-platform-portal-service",
  "sdkwork-portal-service-host",
+ "sdkwork-routes-portal-common",
  "sdkwork-web-axum",
  "sdkwork-web-bootstrap",
  "sdkwork-web-core",
  "serde_json",
+ "uuid",
+]
+
+[[package]]
+name = "sdkwork-routes-portal-common"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "sdkwork-utils-rust",
+ "sdkwork-web-core",
+ "serde",
+ "serde_json",
+ "tokio",
  "uuid",
 ]
 
@@ -1903,7 +1918,9 @@ dependencies = [
  "getrandom 0.2.17",
  "hmac",
  "http",
+ "percent-encoding",
  "rsa",
+ "sdkwork-utils-rust",
  "sdkwork-web-contract",
  "serde",
  "serde_json",

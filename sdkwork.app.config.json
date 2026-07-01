@@ -3,15 +3,16 @@
   "kind": "sdkwork.app",
   "app": {
     "key": "sdkwork-portal",
-    "name": "SDKWork Portal PC",
-    "displayName": "SDKWork Portal PC",
-    "description": "Unified SDKWork PC portal shell and preferences console.",
+    "name": "SDKWork Portal",
+    "displayName": "SDKWork Portal",
+    "description": "Unified SDKWork PC portal shell, user preferences, and operator console.",
     "vendor": "SDKWork",
+    "officialWebsiteUrl": "https://sdkwork.com/apps/sdkwork-portal",
     "appType": "APP_REACT",
     "versionSource": "package.json",
     "identifiers": {
       "desktopAppId": "com.sdkwork.portal.pc.desktop",
-      "containerImage": "registry.sdkwork.com/apps/sdkwork-portal-pc"
+      "containerImage": "registry.sdkwork.com/apps/sdkwork-portal"
     }
   },
   "backend": {
@@ -19,30 +20,76 @@
     "ownerMode": "tenant",
     "grantMode": "current",
     "platform": "WEB",
+    "appId": "sdkwork-portal-pc",
     "tenantId": "100001",
-    "organizationId": "0"
+    "organizationId": "0",
+    "accessTokenPermissionScope": [
+      "iam.users.read",
+      "iam.organizations.read",
+      "iam.roles.read",
+      "iam.permissions.read"
+    ]
   },
   "runtime": {
     "family": "web",
     "framework": "react",
-    "runtimes": [
-      "WEB",
-      "BROWSER"
-    ],
-    "deliveryModes": [
-      "WEB_URL"
-    ],
-    "supportedDeploymentProfiles": [
-      "standalone",
-      "cloud"
-    ],
+    "runtimes": ["WEB", "BROWSER"],
+    "deliveryModes": ["WEB_URL"],
+    "supportedDeploymentProfiles": ["standalone", "cloud"],
     "defaultDeploymentProfile": "cloud"
   },
+  "media": {
+    "icons": {
+      "primary": {
+        "id": "sdkwork-portal-primary-icon",
+        "type": "ICON",
+        "purpose": "PRIMARY",
+        "url": "https://cdn.sdkwork.com/apps/sdkwork-portal/assets/icon-1024.png",
+        "platform": "WEB",
+        "locale": "en-US",
+        "width": 1024,
+        "height": 1024,
+        "format": "PNG",
+        "enabled": true
+      },
+      "platform": []
+    },
+    "screenshots": [],
+    "previews": [],
+    "metadata": {
+      "assetVersion": "0.1.0",
+      "defaultLocale": "en-US"
+    }
+  },
   "publish": {
+    "status": "ACTIVE",
+    "platforms": ["WEB", "BROWSER"],
+    "installPlatforms": ["WEB"],
     "config": {
       "workspaceRoot": "sdkwork-portal",
       "managedBy": "sdkwork-portal-workspace"
     }
+  },
+  "environments": {
+    "development": {
+      "runtimeProfile": "standalone.unified-process.development"
+    },
+    "production": {
+      "runtimeProfile": "cloud.split-services.production"
+    }
+  },
+  "artifacts": {
+    "installConfig": {
+      "packages": []
+    }
+  },
+  "release": {
+    "channel": "stable",
+    "governance": "standard"
+  },
+  "security": {
+    "dataClassification": "internal",
+    "requiresAuthentication": true
   },
   "devApp": {
     "sourceRoot": "apps/sdkwork-portal-pc"
