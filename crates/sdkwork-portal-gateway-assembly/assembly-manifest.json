@@ -4,7 +4,7 @@
   "applicationCode": "portal",
   "packageName": "sdkwork-portal-gateway-assembly",
   "crateDir": "crates/sdkwork-portal-gateway-assembly",
-  "generatedAt": "2026-06-25T13:08:05.592Z",
+  "generatedAt": "2026-07-08T01:34:21.015Z",
   "routeCrates": [
     {
       "packageName": "sdkwork-routes-portal-app-api",
