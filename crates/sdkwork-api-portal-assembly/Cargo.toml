@@ -1,0 +1,16 @@
+[package]
+name = "sdkwork-api-portal-assembly"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+description = "Generated API assembly for sdkwork-portal application HTTP plane."
+
+[lib]
+name = "sdkwork_api_portal_assembly"
+path = "src/lib.rs"
+
+[dependencies]
+axum.workspace = true
+tokio.workspace = true
+sdkwork-routes-portal-app-api = { path = "../sdkwork-routes-portal-app-api" }
+sdkwork-routes-portal-backend-api = { path = "../sdkwork-routes-portal-backend-api" }
