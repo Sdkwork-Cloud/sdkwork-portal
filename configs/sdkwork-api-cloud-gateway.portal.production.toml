@@ -21,7 +21,7 @@ coverage = "portal-app-api-upstream-routes"
 
 [[upstreams]]
 serviceId = "sdkwork-portal-app-api"
-baseUrl = "http://sdkwork-portal-standalone-gateway:18091"
+baseUrl = "http://sdkwork-api-portal-standalone-gateway:18091"
 
 [cors]
 allowAnyOrigin = false

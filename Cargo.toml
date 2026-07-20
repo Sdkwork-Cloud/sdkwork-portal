@@ -2,7 +2,7 @@
 resolver = "2"
 members = [
     "crates/sdkwork-api-portal-assembly",
-    "crates/sdkwork-portal-gateway-assembly",
+    "crates/sdkwork-api-portal-assembly",
     "crates/sdkwork-routes-portal-common",
   "crates/sdkwork-platform-portal-service",
   "crates/sdkwork-platform-portal-repository-sqlx",
@@ -10,7 +10,7 @@ members = [
   "crates/sdkwork-routes-portal-backend-api",
   "crates/sdkwork-portal-database-host",
   "crates/sdkwork-portal-service-host",
-  "crates/sdkwork-portal-standalone-gateway",
+  "crates/sdkwork-api-portal-standalone-gateway",
 ]
 
 [workspace.package]

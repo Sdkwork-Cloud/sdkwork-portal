@@ -1,5 +1,5 @@
 [package]
-name = "sdkwork-portal-standalone-gateway"
+name = "sdkwork-api-portal-standalone-gateway"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
@@ -11,7 +11,7 @@ name = "portal-server"
 path = "src/main.rs"
 
 [dependencies]
-sdkwork_portal_gateway_assembly = { package = "sdkwork-portal-gateway-assembly", path = "../sdkwork-portal-gateway-assembly" }
+sdkwork_api_portal_assembly = { package = "sdkwork-api-portal-assembly", path = "../sdkwork-api-portal-assembly" }
 axum = { workspace = true }
 tokio = { workspace = true }
 tower-http = { workspace = true }

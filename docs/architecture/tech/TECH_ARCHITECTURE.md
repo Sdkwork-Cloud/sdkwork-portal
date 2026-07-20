@@ -23,7 +23,7 @@ Specs: `sdkwork-specs/APP_PC_ARCHITECTURE_SPEC.md`, `WEB_FRAMEWORK_SPEC.md`, `DA
 
 - `crates/sdkwork-routes-portal-*`: HTTP route boundaries (app-api, backend-api)
 - `crates/sdkwork-platform-portal-service`: domain service
-- `crates/sdkwork-portal-standalone-gateway`: unified process entrypoint
+- `crates/sdkwork-api-portal-standalone-gateway`: unified process entrypoint
 - `packages/common/portal/`: shared TypeScript contracts and normalization
 - `apps/sdkwork-portal-pc/`: PC browser shell and future IAM/bootstrap wiring
 

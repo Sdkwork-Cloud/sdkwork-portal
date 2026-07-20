@@ -1,4 +1,4 @@
-use sdkwork_portal_gateway_assembly::assemble_application_router;
+use sdkwork_api_portal_assembly::assemble_api_router;
 use sdkwork_portal_service_host::PortalServiceHost;
 use sdkwork_web_bootstrap::{service_router, ServiceRouterConfig};
 use std::sync::Arc;
@@ -9,7 +9,7 @@ async fn main() {
     tracing::info!("Starting SDKWork Portal API Server...");
 
     let host = Arc::new(PortalServiceHost::new().await);
-    let assembly = assemble_application_router(host).await;
+    let assembly = assemble_api_router(host).await;
 
     let business = assembly.router.layer(
         sdkwork_web_bootstrap::application_cors_layer_from_env(
