@@ -2,7 +2,6 @@
 resolver = "2"
 members = [
     "crates/sdkwork-api-portal-assembly",
-    "crates/sdkwork-api-portal-assembly",
     "crates/sdkwork-routes-portal-common",
   "crates/sdkwork-platform-portal-service",
   "crates/sdkwork-platform-portal-repository-sqlx",
@@ -20,7 +19,6 @@ license = "AGPL-3.0-or-later"
 publish = false
 
 [workspace.dependencies]
-sdkwork-utils-rust = { path = "../../../sdkwork-utils/packages/sdkwork-utils-rust" }
 axum = "0.8"
 tokio = { version = "1.51", features = ["macros", "rt-multi-thread", "net", "sync"] }
 serde = { version = "1", features = ["derive"] }
